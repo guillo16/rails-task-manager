@@ -1,0 +1,10 @@
+<h1> hello</h1>
+
+<p> <%= @task.details %></p>
+
+<p> This tag is <%= @task.completed? ? "completed" : "pending" %></p>
+
+<%= link_to "Back to list" , tasks_path%>
+
+<%= link_to "edit this task", edit_task_path  %>
+

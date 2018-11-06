@@ -5,3 +5,12 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+puts "Destroying current seeds"
+Task.destroy_all
+
+puts "Creating new seeds"
+5.times do
+  @task = Task.new(title: Faker::ChuckNorris.fact, details: Faker::FunnyName.name)
+  @task.save
+  p @task
+end
