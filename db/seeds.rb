@@ -10,7 +10,7 @@ Task.destroy_all
 
 puts "Creating new seeds"
 5.times do
-  @task = Task.new(title: Faker::ChuckNorris.fact, details: Faker::FunnyName.name)
+  @task = Task.new(title: Faker::Verb.simple_present, details: Faker::FunnyName.name)
   @task.save
   p @task
 end

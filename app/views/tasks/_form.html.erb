@@ -1,0 +1,16 @@
+<div class="container">
+  <form>
+    <%= form_for(@task) do |f| %>
+    <div class="form-group">
+      <%= f.text_field :title, placeholder: "Title" %>
+    </div>
+    <div class="form-group">
+      <%= f.text_field :details, placeholder: "Details" %>
+    </div>
+    <div class="form-group">
+      Done - <%= f.check_box :completed  %>
+    </div>
+    <%= f.submit class: "btn btn-primary" %>
+    <% end %>
+  </form>
+</div>
