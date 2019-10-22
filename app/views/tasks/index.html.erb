@@ -2,14 +2,18 @@
 
 <div class="container">
   <% @tasks.each do |task| %>
-  <%if task.completed %>
-  <--- completed
-  <% else %>
-  <i class="far fa-square"></i> pending
-  <% end %>
-  <%= link_to task.title, task_path(task) %> - <%= link_to "delete", delete_task_path(task), method: :delete, data:{confirm:"Are you sure?"}%>
-  <br>
-
+  <div class="cards">
+    <%if task.completed %>
+    <i class="fa fa-check-square-o"></i>
+    <% else %>
+    <i class="fa fa-square-o"></i>
+    <% end %>
+    <br> <br>
+    <%= link_to task_path(task) do %>
+     <%= task.title %>
+    <% end %>
+    <h3><%= link_to "delete", delete_task_path(task), method: :delete, data:{confirm:"Are you sure?"}, class: "btn btn-danger"%></h3>
+  </div>
   <% end %>
 </div>
 
@@ -19,3 +23,15 @@
 
 
 
+<style>
+  .cards {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border: 1px solid black;
+    padding: 10px;
+    margin-bottom: 10px;
+    text-align: center;
+    background-color: lightgrey;
+  }
+</style>
